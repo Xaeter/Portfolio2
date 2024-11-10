@@ -345,7 +345,7 @@ a {
 @keyframes float {
     0% {
         transform: translateY(0); /* Start from the initial position */
-        opacity: 0.3; /* Set initial opacity to 30% */
+        opacity: 0.8; /* Set initial opacity to 30% */
     }
     100% {
         transform: translateY(-200px); /* Move upwards continuously */
@@ -356,7 +356,7 @@ a {
 @keyframes pop {
     0% {
         transform: scale(1); /* Start at normal size */
-        opacity: 0.8; /* Set initial opacity to 30% */
+        opacity: .8; /* Set initial opacity to 30% */
     }
     50% {
         transform: scale(1.2); /* Slight growth to simulate tension */
