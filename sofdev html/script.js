@@ -35,6 +35,21 @@
 //     } else {
 //         console.error("Container not found!");
 //     }
+
+document.addEventListener("DOMContentLoaded", () => {
+    const certs = document.querySelector(".certs");
+  
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          certs.classList.add("visible");
+          observer.unobserve(certs); // Stop observing once it's visible
+        }
+      });
+    }, { threshold: 0.1 }); // Trigger when 10% of .certs is in view
+  
+    observer.observe(certs);
+  });
 const container = document.getElementById('bubble-container');
 
 // Function to create a bubble at the mouse position
