@@ -339,23 +339,34 @@ a {
     pointer-events: none;
     box-shadow: 0 0 15px rgba(173, 216, 230, 0.3), 0 0 25px rgba(135, 206, 235, 0.3); /* Soft blue glow with 30% opacity */
     border: 1px solid rgba(173, 216, 230, 0.3); /* Light blue border with 30% opacity */
-    animation: float 5s linear forwards, pop 0.6s ease-out forwards 4.4s; /* Bubble floats upwards and pops */
+    animation: float 2s cubic-bezier(0.37, 0, 0.63, 1) forwards; /* Bubble floats upwards and pops */
 }
 
 @keyframes float {
     0% {
-        transform: translateY(0); /* Start from the initial position */
-        opacity: 0.8; /* Set initial opacity to 30% */
+        transform: translateY(0) scale(1.25);
+        opacity: 0.8;
+        filter: hue-rotate(0deg); /* Initial hue */
     }
+
+    20% {
+        filter: hue-rotate(180deg); /* Shift halfway through the color spectrum */
+    }
+
+    70%{
+        filter: hue-rotate(360deg); /* Complete the hue rotation */
+    }
+    
     100% {
-        transform: translateY(-200px); /* Move upwards continuously */
-        opacity: 0; /* Fade out completely */
+        transform: translateY(-200px) scale(0.25);
+        opacity: 0;
+        filter: hue-rotate(450deg); 
     }
 }
 
 @keyframes pop {
     0% {
-        transform: scale(1); /* Start at normal size */
+        transform: scale(1) translateY(0); /* Start at normal size */
         opacity: .8; /* Set initial opacity to 30% */
     }
     50% {

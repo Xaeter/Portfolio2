@@ -36,9 +36,12 @@
 //         console.error("Container not found!");
 //     }
 const container = document.getElementById('bubble-container');
+const bubbles = [];
+const hasListener = false;
 
 // Function to create a bubble at the mouse position
 function createBubble(e) {
+    
     const bubble = document.createElement('div');
     bubble.classList.add('bubble');
 
@@ -53,10 +56,18 @@ function createBubble(e) {
 
     container.appendChild(bubble);
 
-    // Remove the bubble after the pop effect (around 5.6 seconds)
+    bubbles.push(bubble);
+    if(bubbles.length > 100) {
+        bubbles[0].remove();
+        bubbles.splice(0, 1);
+    };
+
+    // Remove the bubble after the pop effect (around 5.6 seconds)`
     setTimeout(() => {
-        bubble.remove();
-    }, 5600); // 5600ms = 5.6 seconds (float + pop duration)
+       bubbles[bubbles.indexOf(bubble)].remove();
+       bubbles.splice(bubbles.indexOf(bubble), 1);
+    }, 5000); // 5600ms = 5.6 seconds (float + pop duration)
+    
 }
 
 // Function to handle mouse hovering over the container
@@ -66,10 +77,18 @@ container.addEventListener('mousemove', function (e) {
 
 // Optionally: If you want to start the effect only when mouse enters the container
 container.addEventListener('mouseenter', function () {
+    // if(hasListener) return; // Check if the listener is already set up
     container.addEventListener('mousemove', createBubble);
+    // hasListener = true;
+    for(let i = 0; i < bubbles.length; i++) {
+        let bubble = bubbles[i];
+        bubble.remove();
+    }
+    bubbles = [];
 });
 
 // Stop creating bubbles when the mouse leaves the container
 container.addEventListener('mouseleave', function () {
     container.removeEventListener('mousemove', createBubble);
+   
 });
