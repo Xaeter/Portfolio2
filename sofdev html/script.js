@@ -64,10 +64,6 @@ container.addEventListener('mousemove', function (e) {
     createBubble(e); // Create a bubble when the mouse moves
 });
 
-// Optionally: If you want to start the effect only when mouse enters the container
-container.addEventListener('mouseenter', function () {
-    container.addEventListener('mousemove', createBubble);
-});
 
 // Stop creating bubbles when the mouse leaves the container
 container.addEventListener('mouseleave', function () {

@@ -258,20 +258,18 @@ a {
     height: 100px;
     margin-top: 5rem;
     overflow: hidden;
-    mask-image: linear-gradient(
-      to right,
-      rgba(0, 0, 0, 0),
-      rgba(0, 0, 0, 1) 20%,
-      rgba(0, 0, 0, 1) 80%,
-      rgba(0, 0, 0, 0)
-    );
-  }
-  
-  @keyframes scrollLeft {
+    mask-image: linear-gradient(to right,
+            rgba(0, 0, 0, 0),
+            rgba(0, 0, 0, 1) 20%,
+            rgba(0, 0, 0, 1) 80%,
+            rgba(0, 0, 0, 0));
+}
+
+@keyframes scrollLeft {
     to {
-      left: -200px;
+        left: -200px;
     }
-  }
+}
 
 .slide {
     width: 200px;
@@ -286,44 +284,50 @@ a {
     animation-iteration-count: infinite;
 
 }
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px; 
+}
 
 
 .item1 {
     animation-delay: calc(30s / 8 * (8 - 1) * -1);
-  }
-  
-  .item2 {
+}
+
+.item2 {
     animation-delay: calc(30s / 8 * (8 - 2) * -1);
-  }
-  
-  .item3 {
+}
+
+.item3 {
     animation-delay: calc(30s / 8 * (8 - 3) * -1);
-  }
-  
-  .item4 {
+}
+
+.item4 {
     animation-delay: calc(30s / 8 * (8 - 4) * -1);
-  }
-  
-  .item5 {
+}
+
+.item5 {
     animation-delay: calc(30s / 8 * (8 - 5) * -1);
-  }
-  
-  .item6 {
+}
+
+.item6 {
     animation-delay: calc(30s / 8 * (8 - 6) * -1);
-  }
-  
-  .item7 {
+}
+
+.item7 {
     animation-delay: calc(30s / 8 * (8 - 7) * -1);
-  }
-  
-  .item8 {
+}
+
+.item8 {
     animation-delay: calc(30s / 8 * (8 - 8) * -1);
-  }
+}
 
 .bubble-container {
     position: relative;
     margin-top: 3rem;
-    background-color:transparent;
+    background-color: transparent;
     height: 100%;
     width: 100%;
     /* width: 100%; */
@@ -334,39 +338,57 @@ a {
 
 .bubble {
     position: absolute;
-    background: radial-gradient(circle, rgba(173, 216, 230, 0.3) 30%, rgba(135, 206, 235, 0.3) 50%, rgba(70, 130, 180, 0.3) 70%, rgba(0, 191, 255, 0.3) 100%); /* Light blue gradient with 30% opacity */
+    background: radial-gradient(circle, rgba(173, 216, 230, 0.3) 30%, rgba(135, 206, 235, 0.3) 50%, rgba(70, 130, 180, 0.3) 70%, rgba(0, 191, 255, 0.3) 100%);
+    /* Light blue gradient with 30% opacity */
     border-radius: 50%;
     pointer-events: none;
-    box-shadow: 0 0 15px rgba(173, 216, 230, 0.3), 0 0 25px rgba(135, 206, 235, 0.3); /* Soft blue glow with 30% opacity */
-    border: 1px solid rgba(173, 216, 230, 0.3); /* Light blue border with 30% opacity */
-    animation: float 5s linear forwards, pop 0.6s ease-out forwards 4.4s; /* Bubble floats upwards and pops */
+    box-shadow: 0 0 15px rgba(173, 216, 230, 0.3), 0 0 25px rgba(135, 206, 235, 0.3);
+    /* Soft blue glow with 30% opacity */
+    border: 1px solid rgba(173, 216, 230, 0.3);
+    /* Light blue border with 30% opacity */
+    animation: float 5s linear forwards, pop 0.6s ease-out forwards 4.4s;
+    /* Bubble floats upwards and pops */
 }
 
 @keyframes float {
     0% {
-        transform: translateY(0); /* Start from the initial position */
-        opacity: 0.8; /* Set initial opacity to 30% */
+        transform: translateY(0);
+        /* Start from the initial position */
+        opacity: 0.8;
+        /* Set initial opacity to 30% */
     }
+
     100% {
-        transform: translateY(-200px); /* Move upwards continuously */
-        opacity: 0; /* Fade out completely */
+        transform: translateY(-200px);
+        /* Move upwards continuously */
+        opacity: 0;
+        /* Fade out completely */
     }
 }
 
 @keyframes pop {
     0% {
-        transform: scale(1); /* Start at normal size */
-        opacity: .8; /* Set initial opacity to 30% */
+        transform: scale(1);
+        /* Start at normal size */
+        opacity: .8;
+        /* Set initial opacity to 30% */
     }
+
     50% {
-        transform: scale(1.2); /* Slight growth to simulate tension */
-        opacity: 0.2; /* Slight fade */
+        transform: scale(1.2);
+        /* Slight growth to simulate tension */
+        opacity: 0.2;
+        /* Slight fade */
     }
+
     100% {
-        transform: scale(0); /* Shrink to 0 size */
-        opacity: 0; /* Fade out completely */
+        transform: scale(0);
+        /* Shrink to 0 size */
+        opacity: 0;
+        /* Fade out completely */
     }
 }
+
 .contact img {
     scale: 20%;
     margin: 1rem;
